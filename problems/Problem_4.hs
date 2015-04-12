@@ -17,5 +17,5 @@ numToString x = show x
 isPal :: Eq a => [a] -> Bool
 isPal x = x == reverse x
 
-
+problem4 :: Int
 problem4 = largestPal

@@ -9,4 +9,5 @@ module Problem_5 where
 firstDivisableByAll :: [Int] -> Int
 firstDivisableByAll = foldl1 lcm
 
+problem5 :: Int
 problem5 = firstDivisableByAll [1..20]

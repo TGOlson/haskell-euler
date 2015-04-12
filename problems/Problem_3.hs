@@ -11,4 +11,5 @@ import Factors
 largestPrimeFactor :: Int -> Int
 largestPrimeFactor = maximum . getPrimeFactors
 
+problem3 :: Int
 problem3 = largestPrimeFactor 600851475143

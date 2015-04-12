@@ -9,4 +9,5 @@ module Problem_1 where
 sumMult :: Int -> Int
 sumMult y = sum [x | x <- [1..y - 1], x `mod` 3 == 0 || x `mod` 5 == 0]
 
+problem1 :: Int
 problem1 = sumMult 1000

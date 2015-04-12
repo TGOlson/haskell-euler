@@ -24,5 +24,5 @@ addUntil x xs
   | otherwise =  addUntil x (xs ++ [next])
   where next = last xs + (last (init xs))
   
-
+problem2 :: Int
 problem2 = sumOfEvenFibsBelow 4000000
