@@ -1,3 +1,5 @@
+import System.Environment
+
 import MaybeAnswer
 
 import Problem_1
@@ -28,13 +30,6 @@ answerSets = [
     (10, EmptyAnswer, EmptyAnswer)
   ]
 
-
-printAnswerSets :: [AnswerSet] -> IO [()]
-printAnswerSets = mapM $ printAnswerSet
-
-printAnswerSet :: AnswerSet -> IO ()
-printAnswerSet = putStrLn . showAnswerFormatted
-
 showAnswerFormatted :: AnswerSet -> String
 showAnswerFormatted (n, answer, solution) =
   showProblem n ++ " - " ++
@@ -50,4 +45,21 @@ showState _ EmptyAnswer = "[unverified]"
 showState x y = if x == y then "[solved]" else "[unsolved]"
 
 
-main = printAnswerSets answerSets
+printAnswerSets :: [AnswerSet] -> IO [()]
+printAnswerSets = mapM $ printAnswerSet
+
+printAnswerSet :: AnswerSet -> IO ()
+printAnswerSet = putStrLn . showAnswerFormatted
+
+printAnswerSetIndex :: Int -> IO [()]
+printAnswerSetIndex x = printAnswerSets $ [answerSets !! (x - 1)]
+
+dispatch :: [String] -> IO [()]
+dispatch [] = printAnswerSets answerSets
+dispatch ("p":args) = printAnswerSetIndex . read $ head args
+-- Non-exhaustive pattern
+
+
+main = do
+  args <- getArgs
+  dispatch args

@@ -9,14 +9,21 @@ $ cabal run
 
 Problem 1 - 233168 [solved]
 Problem 2 - 4613732 [solved]
-...
+Problem 3 - 6857 [solved]
+Problem 4 - 906609 [solved]
+Problem 5 - 232792560 [solved]
+Problem 6 - No Answer
+Problem 7 - No Answer
+Problem 8 - No Answer
+Problem 9 - No Answer
+Problem 10 - No Answer
 
 ```
 
 Specify problem:
 
 ```
-$ cabal run -p 2
+$ cabal run -- p 2
 
 Problem 2 - 4613732 [solved]
 ```
