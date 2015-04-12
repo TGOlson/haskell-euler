@@ -24,7 +24,7 @@ answerSets = [
     (3, Answer problem3, Answer 6857),
     (4, Answer problem4, Answer 906609),
     (5, Answer problem5, Answer 232792560),
-    (6, Answer problem6, EmptyAnswer),
+    (6, Answer problem6, Answer 25164150),
     (7, EmptyAnswer, EmptyAnswer),
     (8, EmptyAnswer, EmptyAnswer),
     (9, EmptyAnswer, EmptyAnswer),
