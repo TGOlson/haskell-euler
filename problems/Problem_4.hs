@@ -6,8 +6,6 @@
 
 module Problem_4 where
 
--- Can this be optimized? It solves slow
-
 largestPal = maximum [x * y | x <- [100..999], y <- [x..999], isPalNum(x * y) ]
 
 isPalNum :: Int -> Bool

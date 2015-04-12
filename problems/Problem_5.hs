@@ -6,15 +6,7 @@
 
 module Problem_5 where
 
+firstDivisableByAll :: [Int] -> Int
+firstDivisableByAll = foldl1 lcm
 
--- Note: this should use the least common multiple principle instead of brute force
-
-divisableByAll :: [Int] -> Int
-divisableByAll xs = head [x | x <- [20,40..], isDivisableByAll xs x]
-
-isDivisableByAll xs x = all (\v -> isFactorOf v x) xs
-
-isFactorOf x y = y `mod` x == 0
-
-
-problem5 = divisableByAll [20,19..2]
+problem5 = firstDivisableByAll [1..20]
