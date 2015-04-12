@@ -9,7 +9,7 @@ module Problem_5 where
 
 -- Note: this should use the least common multiple principle instead of brute force
 
-
+divisableByAll :: [Int] -> Int
 divisableByAll xs = head [x | x <- [20,40..], isDivisableByAll xs x]
 
 isDivisableByAll xs x = all (\v -> isFactorOf v x) xs
