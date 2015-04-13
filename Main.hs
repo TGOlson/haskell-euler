@@ -15,6 +15,7 @@ type AnswerSet = (Int, MaybeAnswer Int, MaybeAnswer Int)
 -- Note: solved answer values are provided by the Euler website
 -- after a problem is successfully solved. They are included here
 -- as protection against regression when refactoring
+-- TODO: use a test framework
 
 -- Reference for 1-10
 -- https://wiki.haskell.org/Euler_problems/1_to_10

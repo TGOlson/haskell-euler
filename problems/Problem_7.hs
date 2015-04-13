@@ -8,7 +8,7 @@ module Problem_7 where
 
 import Primes
 
-findNthPrimeNumber x = last . take x $ filter isPrime [1..]
+findNthPrimeNumber x = primes !! (x - 1)
 
 problem7 :: Int
 problem7 = findNthPrimeNumber 10001
