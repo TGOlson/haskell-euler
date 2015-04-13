@@ -10,6 +10,7 @@ import Problem_5
 import Problem_6
 import Problem_7
 import Problem_8
+import Problem_9
 
 type AnswerSet = (Int, MaybeAnswer Int, MaybeAnswer Int)
 
@@ -30,7 +31,7 @@ answerSets = [
     (6, Answer problem6, Answer 25164150),
     (7, Answer problem7, Answer 104743),
     (8, Answer problem8, Answer 23514624000),
-    (9, EmptyAnswer, EmptyAnswer),
+    (9, Answer problem9, Answer 31875000),
     (10, EmptyAnswer, EmptyAnswer)
   ]
 
