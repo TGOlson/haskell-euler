@@ -11,8 +11,9 @@ import Problem_6
 import Problem_7
 import Problem_8
 import Problem_9
+import Problem_10
 
-type AnswerSet = (Int, MaybeAnswer Int, MaybeAnswer Int)
+data AnswerSet = AnswerSet Int (MaybeAnswer Int) (MaybeAnswer Int)
 
 -- Note: solved answer values are provided by the Euler website
 -- after a problem is successfully solved. They are included here
@@ -23,20 +24,25 @@ type AnswerSet = (Int, MaybeAnswer Int, MaybeAnswer Int)
 -- https://wiki.haskell.org/Euler_problems/1_to_10
 
 answerSets = [
-    (1, Answer problem1, Answer 233168),
-    (2, Answer problem2, Answer 4613732),
-    (3, Answer problem3, Answer 6857),
-    (4, Answer problem4, Answer 906609),
-    (5, Answer problem5, Answer 232792560),
-    (6, Answer problem6, Answer 25164150),
-    (7, Answer problem7, Answer 104743),
-    (8, Answer problem8, Answer 23514624000),
-    (9, Answer problem9, Answer 31875000),
-    (10, EmptyAnswer, EmptyAnswer)
+    (AnswerSet 1   (Answer problem1)   (Answer 233168)),
+    (AnswerSet 2   (Answer problem2)   (Answer 4613732)),
+    (AnswerSet 3   (Answer problem3)   (Answer 6857)),
+    (AnswerSet 4   (Answer problem4)   (Answer 906609)),
+    (AnswerSet 5   (Answer problem5)   (Answer 232792560)),
+    (AnswerSet 6   (Answer problem6)   (Answer 25164150)),
+    (AnswerSet 7   (Answer problem7)   (Answer 104743)),
+    (AnswerSet 8   (Answer problem8)   (Answer 23514624000)),
+    (AnswerSet 9   (Answer problem9)   (Answer 31875000)),
+    (AnswerSet 10  (Answer problem10)  (Answer 142913828922)),
+    (AnswerSet 11   EmptyAnswer         EmptyAnswer),
+    (AnswerSet 12   EmptyAnswer         EmptyAnswer),
+    (AnswerSet 13   EmptyAnswer         EmptyAnswer),
+    (AnswerSet 14   EmptyAnswer         EmptyAnswer),
+    (AnswerSet 15   EmptyAnswer         EmptyAnswer)
   ]
 
 showAnswerFormatted :: AnswerSet -> String
-showAnswerFormatted (n, answer, solution) =
+showAnswerFormatted (AnswerSet n answer solution) =
   showProblem n ++ " - " ++
   show answer ++ " " ++
   showState answer solution
