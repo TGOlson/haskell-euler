@@ -3,12 +3,9 @@
 --
 -- What is the 10 001st prime number?
 
-
 module Problem_7 where
 
 import Primes
 
-findNthPrimeNumber x = primes !! (x - 1)
-
 problem7 :: Int
-problem7 = findNthPrimeNumber 10001
+problem7 = nthPrimeNumber 10001

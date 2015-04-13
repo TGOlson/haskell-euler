@@ -1,24 +1,16 @@
 module Primes where
 
-import Factors
-
 primes :: [Int]
 primes = 2 : filter isPrime [3,5..]
 
 isPrime :: Int -> Bool
-isPrime x = null . take 1 $ [y | y <- [2..(sqrtInt x)], isFactorOf y x]
+isPrime x = null . take 1 $ [y | y <- [2..(sqrtInt x)], x `mod` y == 0]
 
 sqrtInt :: Int -> Int
 sqrtInt = ceiling . sqrt . fromIntegral
 
-primeFactors :: Int -> [Int]
-primeFactors = getPrimeFactorsWithContainer []
+takeNPrimeNumbers :: Int -> [Int]
+takeNPrimeNumbers x = take x primes
 
--- try to refactor this into a single function
-getPrimeFactorsWithContainer :: [Int] -> Int -> [Int]
-getPrimeFactorsWithContainer xs 1 = xs
-getPrimeFactorsWithContainer xs x = getPrimeFactorsWithContainer xs' x'
-    where
-      nextPrimeFactor = head [y | y <- primes, isFactorOf y x]
-      x' = x `div` nextPrimeFactor
-      xs' = nextPrimeFactor:xs
+nthPrimeNumber :: Int -> Int
+nthPrimeNumber = last . takeNPrimeNumbers
