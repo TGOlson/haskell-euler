@@ -28,3 +28,6 @@ differenceOfSquaresAndSums xs = (squareOfTheSums xs) - (sumOfTheSquares xs)
 
 problem6 :: Int
 problem6 = differenceOfSquaresAndSums [1..100]
+
+-- One-liner, for fun:
+-- problem6 = ((^2) $ sum [1..100]) - (sum $ map (^2) [1..100])
