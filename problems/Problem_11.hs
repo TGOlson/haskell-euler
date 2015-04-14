@@ -30,6 +30,8 @@ module Problem_11 where
 
 import Data.List
 
+import Common
+
 numList :: [[Int]]
 numList =
   [[08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08],
@@ -53,11 +55,6 @@ numList =
    [20, 73, 35, 29, 78, 31, 90, 01, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 05, 54],
    [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48]]
 
---listSize :: Int
---listSize = 19
-
-rows :: [[Int]]
-rows = numList
 
 col :: Int -> [[Int]] -> [Int]
 col n = map (!! n)
@@ -65,32 +62,53 @@ col n = map (!! n)
 cols :: [[Int]]
 cols = map (\i -> col i numList) [0..length numList - 1]
 
-sections :: Int -> [Int] -> [[Int]]
-sections n (x:xs)
-  | length (x:xs) == n = [x:xs]
-  | otherwise = [x : (take (n - 1) xs)] ++ sections n xs
+diagL :: [[Int]] -> Int -> [Int]
+diagL xs = map (\is -> getAtIndices is xs) . makeIndexSets (length xs - 1)
+
+diagsL :: [[Int]]
+diagsL = map (diagL numList) [(-19), (-18)..19]
+
+diagsR :: [[Int]]
+diagsR = map (diagL (reverse numList)) [(-19), (-18)..19]
+
+diags :: [[Int]]
+diags = diagsL ++ diagsR
+
+getAtIndices :: (Int, Int) -> [[Int]] -> Int
+getAtIndices (i, j) xs = xs !! i !! j
+
+makeIndexSets :: Int -> Int -> [(Int, Int)]
+makeIndexSets m n
+  | n >= 0 = [(i, n + i) | i <- [0..m - n]]
+  | otherwise = map (flipPair) $ makeIndexSets m (abs n)
+
+flipPair :: (Int, Int) -> (Int, Int)
+flipPair (x, y) = (y, x)
+
 
 maxProduct :: Int -> [[Int]] -> Int
 maxProduct n = maximum . map product . concat . map (sections n)
 
-maxProductSectionsOf4 :: [[Int]] -> Int
-maxProductSectionsOf4 = maxProduct 4
-
 maxProductRowsOf4 :: Int
-maxProductRowsOf4 = maxProductSectionsOf4 rows
+maxProductRowsOf4 = maxProduct 4 numList
 
 maxProductColsOf4 :: Int
-maxProductColsOf4 = maxProductSectionsOf4 cols
+maxProductColsOf4 = maxProduct 4 cols
 
----- accepts 0 to 20
---diagL :: Int -> [[Int]] -> [Int]
---diagL n xs = [i | i <- [n..sections]]
---  --where startingRow =
+maxProductDiagsOf4 :: Int
+maxProductDiagsOf4 = maxProduct 4 diags
 
-getRange :: Int -> [Int]
-getRange x
-  | x >= 0 = [0..x]
-  | otherwise = [x..0]
+--
+-- makeIndexPair :: Int -> Int -> (Int, Int)
+-- makeIndexPair x y = (x, y)
+
+-- [-19 -> (19, 0)]
+-- [-18 -> (18, 0), (19, 1)]
+
+-- [ 00 -> (0,0), (1,1) .. (19, 19)]
+
+-- [ 18 -> (0, 18), (1, 19)]
+-- [ 19 -> (0, 19)]
 
 --diagR :: Int -> [[Int]] -> [Int]
 --diagR n xs = xs
@@ -101,4 +119,4 @@ getRange x
 --sumOfPrimesBelow = sum . takePrimesBelow
 
 problem11 :: Int
-problem11 = maximum [maxProductRowsOf4, maxProductColsOf4]
+problem11 = maximum [maxProductRowsOf4, maxProductColsOf4, maxProductDiagsOf4]
