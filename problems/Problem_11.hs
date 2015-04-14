@@ -98,25 +98,6 @@ maxProductColsOf4 = maxProduct 4 cols
 maxProductDiagsOf4 :: Int
 maxProductDiagsOf4 = maxProduct 4 diags
 
---
--- makeIndexPair :: Int -> Int -> (Int, Int)
--- makeIndexPair x y = (x, y)
-
--- [-19 -> (19, 0)]
--- [-18 -> (18, 0), (19, 1)]
-
--- [ 00 -> (0,0), (1,1) .. (19, 19)]
-
--- [ 18 -> (0, 18), (1, 19)]
--- [ 19 -> (0, 19)]
-
---diagR :: Int -> [[Int]] -> [Int]
---diagR n xs = xs
-
---numList =
-
---sumOfPrimesBelow :: Int -> Int
---sumOfPrimesBelow = sum . takePrimesBelow
 
 problem11 :: Int
 problem11 = maximum [maxProductRowsOf4, maxProductColsOf4, maxProductDiagsOf4]

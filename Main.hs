@@ -13,6 +13,7 @@ import Problem_8
 import Problem_9
 import Problem_10
 import Problem_11
+import Problem_12
 
 data AnswerSet = AnswerSet Int (MaybeAnswer Int) (MaybeAnswer Int)
 
@@ -36,7 +37,7 @@ answerSets = [
     (AnswerSet 9   (Answer problem9)   (Answer 31875000)),
     (AnswerSet 10  (Answer problem10)  (Answer 142913828922)),
     (AnswerSet 11  (Answer problem11)  (Answer 70600674)),
-    (AnswerSet 12  EmptyAnswer         EmptyAnswer),
+    (AnswerSet 12  (Answer problem12)  (Answer 76576500)),
     (AnswerSet 13  EmptyAnswer         EmptyAnswer),
     (AnswerSet 14  EmptyAnswer         EmptyAnswer),
     (AnswerSet 15  EmptyAnswer         EmptyAnswer)
