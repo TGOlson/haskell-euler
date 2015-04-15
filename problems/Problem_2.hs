@@ -9,20 +9,14 @@
 module Problem_2 where
 
 
+fibs :: [Int]
+fibs = 1:scanl (\acc x -> acc + x) 2 fibs
+
+fibsBelow :: Int -> [Int]
+fibsBelow x = takeWhile (<x) fibs
+
 sumOfEvenFibsBelow :: Int -> Int
-sumOfEvenFibsBelow x = sum . filter even $ fib x
+sumOfEvenFibsBelow = sum . filter even . fibsBelow
 
-fib :: Int -> [Int]
-fib 0 = []
-fib 1 = [1]
-fib 2 = [1, 2]
-fib x = addUntil x [1, 2]
-
-addUntil :: Int -> [Int] -> [Int]
-addUntil x xs
-  | x < next = xs
-  | otherwise =  addUntil x (xs ++ [next])
-  where next = last xs + (last (init xs))
-  
 problem2 :: Int
 problem2 = sumOfEvenFibsBelow 4000000
