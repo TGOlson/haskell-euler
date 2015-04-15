@@ -8,14 +8,14 @@
 
 module Problem_15 where
 
-factorials :: [Int]
+factorials :: [Integer]
 factorials = scanl (*) 1 [2..]
 
-factorial :: Int -> Int
+factorial :: Int -> Integer
 factorial x = last $ take x factorials
 
-lattice :: Int -> Int -> Int
+lattice :: Int -> Int -> Integer
 lattice x y = (factorial (x + y)) `div` ((factorial x) ^ 2)
 
 problem15 :: Int
-problem15 = lattice 20 20
+problem15 = fromInteger $ lattice 20 20

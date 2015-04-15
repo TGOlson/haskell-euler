@@ -29,21 +29,21 @@ data AnswerSet = AnswerSet Int (MaybeAnswer Int) (MaybeAnswer Int)
 -- https://wiki.haskell.org/Euler_problems/1_to_10
 
 answerSets = [
-    (AnswerSet 1   (Answer problem1)   (Answer 233168)),
-    (AnswerSet 2   (Answer problem2)   (Answer 4613732)),
-    (AnswerSet 3   (Answer problem3)   (Answer 6857)),
-    (AnswerSet 4   (Answer problem4)   (Answer 906609)),
-    (AnswerSet 5   (Answer problem5)   (Answer 232792560)),
-    (AnswerSet 6   (Answer problem6)   (Answer 25164150)),
-    (AnswerSet 7   (Answer problem7)   (Answer 104743)),
-    (AnswerSet 8   (Answer problem8)   (Answer 23514624000)),
-    (AnswerSet 9   (Answer problem9)   (Answer 31875000)),
-    (AnswerSet 10  (Answer problem10)  (Answer 142913828922)),
-    (AnswerSet 11  (Answer problem11)  (Answer 70600674)),
-    (AnswerSet 12  (Answer problem12)  (Answer 76576500)),
-    (AnswerSet 13  (Answer problem13)  (Answer 5537376230)),
-    -- (AnswerSet 14  (Answer problem14)  (Answer 837799)), -- runs slow
-    (AnswerSet 15  (Answer problem15) EmptyAnswer)
+    (AnswerSet 1  (Answer problem1)  (Answer 233168)),
+    (AnswerSet 2  (Answer problem2)  (Answer 4613732)),
+    (AnswerSet 3  (Answer problem3)  (Answer 6857)),
+    (AnswerSet 4  (Answer problem4)  (Answer 906609)),
+    (AnswerSet 5  (Answer problem5)  (Answer 232792560)),
+    (AnswerSet 6  (Answer problem6)  (Answer 25164150)),
+    (AnswerSet 7  (Answer problem7)  (Answer 104743)),
+    (AnswerSet 8  (Answer problem8)  (Answer 23514624000)),
+    (AnswerSet 9  (Answer problem9)  (Answer 31875000)),
+    (AnswerSet 10 (Answer problem10) (Answer 142913828922)),
+    (AnswerSet 11 (Answer problem11) (Answer 70600674)),
+    (AnswerSet 12 (Answer problem12) (Answer 76576500)),
+    (AnswerSet 13 (Answer problem13) (Answer 5537376230)),
+    -- (AnswerSet 14 (Answer problem14) (Answer 837799)), -- runs slow
+    (AnswerSet 15 (Answer problem15) (Answer 137846528820))
   ]
 
 showAnswerFormatted :: AnswerSet -> String
