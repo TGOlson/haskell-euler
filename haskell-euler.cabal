@@ -18,7 +18,7 @@ library
   exposed-modules:
       HaskellEuler
   other-modules:
-      HaskellEuler.Problems
+      HaskellEuler.AnswerSets
       HaskellEuler.Problems.P1
       HaskellEuler.Problems.P10
       HaskellEuler.Problems.P11
