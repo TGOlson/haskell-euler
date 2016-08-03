@@ -4,10 +4,12 @@
 --
 -- What is the sum of the digits of the number 21000?
 
-module Problem_16 where
+module HaskellEuler.Problems.P16
+    ( answer
+    ) where
 
 sumOfDigits :: Integer -> Int
 sumOfDigits = sum . map (read . (:[])) . show
 
-problem16 :: Int
-problem16 = sumOfDigits (2^1000)
+answer :: Int
+answer = sumOfDigits (2 ^(1000 :: Int))

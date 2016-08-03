@@ -20,9 +20,11 @@
 -- What is the value of the first triangle number to have over five hundred
 -- divisors?
 
-module Problem_12 where
+module HaskellEuler.Problems.P12
+    ( answer
+    ) where
 
-import Factors
+import HaskellEuler.Util.Factors
 
 triangles :: [Int]
 triangles = scanl1 (+) [1..]
@@ -34,5 +36,5 @@ triangleWithNFactors :: Int -> Int
 triangleWithNFactors x = nthTriangle . (+1) . length $ takeWhile ((< x) . numFactors) triangles
 -- the nthTriangle length +1 part is weird - how could we take while inclusive?
 
-problem12 :: Int
-problem12 = triangleWithNFactors 500
+answer :: Int
+answer = triangleWithNFactors 500

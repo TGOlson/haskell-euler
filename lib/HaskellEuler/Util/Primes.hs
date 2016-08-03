@@ -1,4 +1,4 @@
-module Primes where
+module HaskellEuler.Util.Primes where
 
 import Data.Array.Unboxed
 
@@ -12,7 +12,7 @@ isPrime :: Int -> Bool
 isPrime x = null . take 1 $ [y | y <- [2..(sqrtInt x)], x `mod` y == 0]
 
 sqrtInt :: Int -> Int
-sqrtInt = ceiling . sqrt . fromIntegral
+sqrtInt = ceiling . (sqrt :: Double -> Double) . fromIntegral
 
 takePrimes :: Int -> [Int]
 takePrimes x = take x primes

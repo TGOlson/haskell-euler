@@ -12,10 +12,12 @@
 -- Find the difference between the sum of the squares of the first
 -- one hundred natural numbers and the square of the sum.
 
-module Problem_6 where
+module HaskellEuler.Problems.P6
+    ( answer
+    ) where
 
 square :: Int -> Int
-square = (^2)
+square = (^ (2 :: Int))
 
 sumOfTheSquares :: [Int] -> Int
 sumOfTheSquares = sum . map square
@@ -24,10 +26,10 @@ squareOfTheSums :: [Int] -> Int
 squareOfTheSums = square . sum
 
 differenceOfSquaresAndSums :: [Int] -> Int
-differenceOfSquaresAndSums xs = (squareOfTheSums xs) - (sumOfTheSquares xs)
+differenceOfSquaresAndSums xs = squareOfTheSums xs - sumOfTheSquares xs
 
-problem6 :: Int
-problem6 = differenceOfSquaresAndSums [1..100]
+answer :: Int
+answer = differenceOfSquaresAndSums [1..100]
 
 -- One-liner, for fun:
 -- problem6 = ((^2) $ sum [1..100]) - (sum $ map (^2) [1..100])

@@ -4,12 +4,14 @@
 --
 -- Find the sum of all the primes below two million.
 
-module Problem_10 where
+module HaskellEuler.Problems.P10
+    ( answer
+    ) where
 
-import Primes
+import HaskellEuler.Util.Primes
 
 sumOfPrimesBelow :: Int -> Int
 sumOfPrimesBelow = sum . takePrimesBelow
 
-problem10 :: Int
-problem10 = sumOfPrimesBelow 2000000
+answer :: Int
+answer = sumOfPrimesBelow 2000000

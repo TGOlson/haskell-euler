@@ -1,8 +1,8 @@
-module Factors where
+module HaskellEuler.Util.Factors where
 
 import Data.List
 
-import Primes
+import HaskellEuler.Util.Primes
 
 getFactors :: Int -> [Int]
 getFactors x

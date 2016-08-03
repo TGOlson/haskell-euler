@@ -17,19 +17,21 @@
 -- NOTE: Once the chain starts the terms are allowed to go above one million.
 
 
-module Problem_14 where
+module HaskellEuler.Problems.P14
+    ( answer
+    ) where
+
 
 import Data.List
 import Data.Ord
 
 collatz :: Int -> [Int]
 collatz 1 = [1]
-collatz x
-  | even x = x : collatz (x `div` 2)
-  | odd  x = x : collatz (3 * x + 1)
+collatz x = if even x then x : collatz (x `div` 2)
+                      else x : collatz (3 * x + 1)
 
 longestCollatzBelowN :: Int -> Int
 longestCollatzBelowN x = head . maximumBy (comparing length) $ map collatz [1..x]
 
-problem14 :: Int
-problem14 = longestCollatzBelowN 1000000
+answer :: Int
+answer = longestCollatzBelowN 1000000

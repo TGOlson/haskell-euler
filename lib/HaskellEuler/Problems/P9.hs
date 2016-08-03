@@ -8,8 +8,12 @@
 -- There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 -- Find the product abc.
 
-module Problem_9 where
+module HaskellEuler.Problems.P9
+    ( answer
+    ) where
 
+
+import HaskellEuler.Util.Common
 
 type Triplet = (Int, Int, Int)
 
@@ -19,7 +23,7 @@ pythagoreanTriplets n = [(a, b, c) | a <- [1..(n `div` 2 + 1)], b <- [a..n], c <
 
 
 isTriplet :: Triplet -> Bool
-isTriplet (a, b, c) = a^2 + b^2 == c^2
+isTriplet (a, b, c) = square a + square b == square c
 
 
 pythagoreanTripletsWithSum :: Int -> [Triplet]
@@ -34,5 +38,5 @@ tripletProduct :: Triplet -> Int
 tripletProduct (a, b, c) = a * b * c
 
 
-problem9 :: Int
-problem9 = tripletProduct . head $ pythagoreanTripletsWithSum 1000
+answer :: Int
+answer = tripletProduct . head $ pythagoreanTripletsWithSum 1000

@@ -4,10 +4,12 @@
 --
 -- Find the sum of all the multiples of 3 or 5 below 1000.
 
-module Problem_1 where
+module HaskellEuler.Problems.P1
+    ( answer
+    ) where
 
 sumMult :: Int -> Int
 sumMult y = sum [x | x <- [1..y - 1], x `mod` 3 == 0 || x `mod` 5 == 0]
 
-problem1 :: Int
-problem1 = sumMult 1000
+answer :: Int
+answer = sumMult 1000

@@ -25,11 +25,11 @@
 --
 -- Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 
-module Problem_8 where
+module HaskellEuler.Problems.P8
+    ( answer
+    ) where
 
-import Data.List
-import Data.Ord
-
+largeNumAsString :: String
 largeNumAsString =
   "73167176531330624919225119674426574742355349194934" ++
   "96983520312774506326239578318016984801869478851843" ++
@@ -58,14 +58,15 @@ largeNumAsList = map (read . (:[])) largeNumAsString
 
 
 sections :: Int -> [Int] -> [[Int]]
+sections _ [] = []
 sections n (x:xs)
   | length (x:xs) == n = [x:xs]
-  | otherwise = [x : (take (n - 1) xs)] ++ sections n xs
+  | otherwise = (x : take (n - 1) xs) : sections n xs
 
 
 maxProductFromSections :: Int -> [Int] -> Int
 maxProductFromSections n = maximum . map product . sections n
 
 
-problem8 :: Int
-problem8 = maxProductFromSections 13 largeNumAsList
+answer :: Int
+answer = maxProductFromSections 13 largeNumAsList

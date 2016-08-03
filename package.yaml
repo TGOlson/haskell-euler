@@ -1,0 +1,26 @@
+name: haskell-euler
+version: 0.1.0.0
+
+ghc-options: -Wall -Werror
+
+executables:
+  haskell-euler:
+    main: Main.hs
+    source-dirs: exec
+    dependencies:
+      - haskell-euler
+
+library:
+  source-dirs: lib
+  exposed-modules:
+    - HaskellEuler
+
+default-extensions:
+  - LambdaCase
+  - OverloadedStrings
+  - ScopedTypeVariables
+  - ExistentialQuantification
+
+dependencies:
+  - base
+  - array

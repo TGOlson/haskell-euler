@@ -5,9 +5,11 @@
 --
 -- What is the 10 001st prime number?
 
-module Problem_7 where
+module HaskellEuler.Problems.P7
+    ( answer
+    ) where
 
-import Primes
+import HaskellEuler.Util.Primes
 
-problem7 :: Int
-problem7 = nthPrimeNumber 10001
+answer :: Int
+answer = nthPrimeNumber 10001

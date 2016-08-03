@@ -2,7 +2,9 @@
 -- Problem 13
 -- Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 
-module Problem_13 where
+module HaskellEuler.Problems.P13
+    ( answer
+    ) where
 
 n :: [Integer]
 n = [
@@ -109,5 +111,5 @@ n = [
   ]
 
 
-problem13 :: Int
-problem13 = read . take 10 . show $ sum n
+answer :: Int
+answer = read . take 10 . show $ sum n

@@ -4,10 +4,12 @@
 --
 -- What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-module Problem_5 where
+module HaskellEuler.Problems.P5
+    ( answer
+    ) where
 
 firstDivisableByAll :: [Int] -> Int
 firstDivisableByAll = foldl1 lcm
 
-problem5 :: Int
-problem5 = firstDivisableByAll [1..20]
+answer :: Int
+answer = firstDivisableByAll [1..20]

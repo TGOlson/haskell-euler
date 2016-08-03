@@ -6,11 +6,13 @@
 --
 -- By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-module Problem_2 where
+module HaskellEuler.Problems.P2
+    ( answer
+    ) where
 
 
 fibs :: [Int]
-fibs = 1:scanl (\acc x -> acc + x) 2 fibs
+fibs = 1:scanl (+) 2 fibs
 
 fibsBelow :: Int -> [Int]
 fibsBelow x = takeWhile (<x) fibs
@@ -18,5 +20,5 @@ fibsBelow x = takeWhile (<x) fibs
 sumOfEvenFibsBelow :: Int -> Int
 sumOfEvenFibsBelow = sum . filter even . fibsBelow
 
-problem2 :: Int
-problem2 = sumOfEvenFibsBelow 4000000
+answer :: Int
+answer = sumOfEvenFibsBelow 4000000

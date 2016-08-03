@@ -26,11 +26,11 @@
 
 --What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 
-module Problem_11 where
+module HaskellEuler.Problems.P11
+    ( answer
+    ) where
 
-import Data.List
-
-import Common
+import HaskellEuler.Util.Common
 
 numList :: [[Int]]
 numList =
@@ -60,10 +60,10 @@ col :: Int -> [[Int]] -> [Int]
 col n = map (!! n)
 
 cols :: [[Int]]
-cols = map (\i -> col i numList) [0..length numList - 1]
+cols = map (`col` numList) [0..length numList - 1]
 
 diagL :: [[Int]] -> Int -> [Int]
-diagL xs = map (\is -> getAtIndices is xs) . makeIndexSets (length xs - 1)
+diagL xs = map (`getAtIndices` xs) . makeIndexSets (length xs - 1)
 
 diagsL :: [[Int]]
 diagsL = map (diagL numList) [(-19), (-18)..19]
@@ -80,14 +80,14 @@ getAtIndices (i, j) xs = xs !! i !! j
 makeIndexSets :: Int -> Int -> [(Int, Int)]
 makeIndexSets m n
   | n >= 0 = [(i, n + i) | i <- [0..m - n]]
-  | otherwise = map (flipPair) $ makeIndexSets m (abs n)
+  | otherwise = map flipPair $ makeIndexSets m (abs n)
 
 flipPair :: (Int, Int) -> (Int, Int)
 flipPair (x, y) = (y, x)
 
 
 maxProduct :: Int -> [[Int]] -> Int
-maxProduct n = maximum . map product . concat . map (sections n)
+maxProduct n = maximum . map product . concatMap (sections n)
 
 maxProductRowsOf4 :: Int
 maxProductRowsOf4 = maxProduct 4 numList
@@ -99,5 +99,5 @@ maxProductDiagsOf4 :: Int
 maxProductDiagsOf4 = maxProduct 4 diags
 
 
-problem11 :: Int
-problem11 = maximum [maxProductRowsOf4, maxProductColsOf4, maxProductDiagsOf4]
+answer :: Int
+answer = maximum [maxProductRowsOf4, maxProductColsOf4, maxProductDiagsOf4]

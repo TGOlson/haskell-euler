@@ -4,18 +4,21 @@
 --
 -- Find the largest palindrome made from the product of two 3-digit numbers.
 
-module Problem_4 where
+module HaskellEuler.Problems.P4
+    ( answer
+    ) where
 
+largestPal :: Int
 largestPal = maximum [x * y | x <- [100..999], y <- [x..999], isPalNum(x * y) ]
 
 isPalNum :: Int -> Bool
 isPalNum = isPal . numToString
 
 numToString :: Show a => a -> String
-numToString x = show x
+numToString = show
 
 isPal :: Eq a => [a] -> Bool
 isPal x = x == reverse x
 
-problem4 :: Int
-problem4 = largestPal
+answer :: Int
+answer = largestPal
