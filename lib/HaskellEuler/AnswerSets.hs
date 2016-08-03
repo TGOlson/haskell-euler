@@ -20,7 +20,7 @@ import qualified HaskellEuler.Problems.P13 as P13
 import qualified HaskellEuler.Problems.P14 as P14
 import qualified HaskellEuler.Problems.P15 as P15
 import qualified HaskellEuler.Problems.P16 as P16
--- import qualified HaskellEuler.Problems.P20 as P20
+import qualified HaskellEuler.Problems.P20 as P20
 
 data AnswerSet
     = Answered Int Int
@@ -50,5 +50,5 @@ answerSets =
     , UnAnswered
     , UnAnswered
     , UnAnswered
-    , UnAnswered
+    , Answered P20.answer 648
     ]

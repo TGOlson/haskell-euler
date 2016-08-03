@@ -13,8 +13,8 @@ module HaskellEuler.Problems.P20
 fact :: (Num a, Enum a) => a -> a
 fact x = product [1..x]
 
-sumDigits :: Int -> Int
+sumDigits :: Integer -> Integer
 sumDigits = sum . fmap (read . pure) . show
 
 answer :: Int
-answer = sumDigits $ fact 10
+answer = fromInteger $ sumDigits $ fact 100
