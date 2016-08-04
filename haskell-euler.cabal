@@ -29,6 +29,7 @@ library
       HaskellEuler.Problems.P16
       HaskellEuler.Problems.P2
       HaskellEuler.Problems.P20
+      HaskellEuler.Problems.P22
       HaskellEuler.Problems.P3
       HaskellEuler.Problems.P4
       HaskellEuler.Problems.P5
